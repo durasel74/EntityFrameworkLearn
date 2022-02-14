@@ -8,16 +8,17 @@ namespace EntityFrameworkLearn.VM;
 
 public class ViewModel : INotifyPropertyChanged
 {
-
     public ViewModel()
     {
         var db = new AppDbContext();
 
-        var users = db.Cities.ToList();
-        Console.WriteLine("Список объектов:");
-        foreach (Cities u in users)
+        //var tables = db.Users_Tours.ToList();
+        var tables = db.Users_Tours.ToList();
+        foreach (var table in tables)
         {
-            Console.WriteLine($"{u.name} {u.description}");
+            string output = $"{table.userLogin} {table.tourName} " +
+			    $"{table.tourDate}";
+            Console.WriteLine(output);
         }
     }
 

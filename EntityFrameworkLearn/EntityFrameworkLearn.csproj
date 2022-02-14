@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <None Update="Recources\TourDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

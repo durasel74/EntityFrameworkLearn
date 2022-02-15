@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:EntityFrameworkLearn"
              StartupUri="View\MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Styles/LessonPage.xaml"/>
+                <ResourceDictionary Source="View/Styles/Buttons/PageButton.xaml"/>
+                <ResourceDictionary Source="View/Styles/Buttons/ButtonNext.xaml"/>
+                <ResourceDictionary Source="View/Styles/Buttons/ButtonBack.xaml"/>
+                <ResourceDictionary Source="View/Styles/Texts/LessonText.xaml"/>
+                <ResourceDictionary Source="View/Styles/Texts/CodeText.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

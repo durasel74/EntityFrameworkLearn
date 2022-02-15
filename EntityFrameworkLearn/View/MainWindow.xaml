@@ -4,10 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EntityFrameworkLearn.View"
+        xmlns:pages="clr-namespace:EntityFrameworkLearn.View.Pages"
         mc:Ignorable="d"
         Title="EFLearn" Height="450" Width="800">
     
-    <Grid>
+    <Grid Background="#CCC">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="0">
+            <ListBox  Background="#A4A"/>
+        </Grid>
+        
+        <pages:GrayPage Grid.Column="1" Margin="2"/>
+
+        <!--<Border Style="{StaticResource LessonPage}">
+            <WrapPanel Orientation="Horizontal" Margin="10">
+                <Button Style="{StaticResource PageButton}"
+                        Margin="10"/>
+                <Button Style="{StaticResource ButtonNext}"
+                        Margin="10"/>
+                <Button Style="{StaticResource ButtonBack}"
+                        Margin="10"/>
+            </WrapPanel>
+        </Border>-->
     </Grid>
 </Window>

@@ -6,21 +6,36 @@
         xmlns:local="clr-namespace:EntityFrameworkLearn.View"
         xmlns:pages="clr-namespace:EntityFrameworkLearn.View.Pages"
         mc:Ignorable="d"
-        Title="EFLearn" Height="450" Width="800">
+        Title="EFLearn" Width="900" Height="600">
     
-    <Grid Background="#CCC">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid Background="#CCC">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <ListBox  Background="#A4A"/>
-        </Grid>
-        
-        <pages:GrayPage Grid.Column="1" Margin="2"/>
+            <Grid Grid.Column="0">
+                <ListBox ItemsSource="{Binding Pages}"
+                     SelectedItem="{Binding SelectedPage, Mode=TwoWay}"
+                     Background="#A4A">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <TextBlock HorizontalAlignment="Center" 
+                                       FontSize="16" 
+                                       Text="{Binding Path=PageTitle}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
 
-        <!--<Border Style="{StaticResource LessonPage}">
+            <pages:GrayPage Grid.Column="1" Margin="2"/>
+
+            <pages:MainPage Grid.Column="1" Margin="2"/>
+
+            <!--<Border Style="{StaticResource LessonPage}">
             <WrapPanel Orientation="Horizontal" Margin="10">
                 <Button Style="{StaticResource PageButton}"
                         Margin="10"/>
@@ -30,5 +45,14 @@
                         Margin="10"/>
             </WrapPanel>
         </Border>-->
+
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
     </Grid>
 </Window>

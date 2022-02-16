@@ -5,7 +5,7 @@
 
         <Setter Property="Padding" Value="5"/>
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="FontFamily" Value="Trebuchet MS"/>
+        <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Foreground" Value="#070707"/>
         <Setter Property="Background" Value="#BBB"/>

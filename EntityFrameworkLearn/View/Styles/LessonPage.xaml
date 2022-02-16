@@ -2,10 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Style x:Key="LessonPage" TargetType="Border">
-
+        <Setter Property="IsEnabled" Value="False"/>
+        <Setter Property="Opacity" Value="1.0"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="Background" Value="#FFF"/>
 
-
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Visibility" Value="Visible"/>
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Opacity">
+                            <DoubleAnimation To="1.0" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.0"/>
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

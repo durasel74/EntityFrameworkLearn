@@ -3,6 +3,8 @@
     
     <Style x:Key="ButtonBack" TargetType="Button" BasedOn="{StaticResource PageButton}">
 
+        <Setter Property="Padding" Value="10"/>
+        
         <Setter Property="Background" Value="Red"/>
 
     </Style>

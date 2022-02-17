@@ -7,12 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border Background="#FFF">
-        <Grid>
+    <Border>
+        <ScrollViewer Style="{StaticResource PageScroll}">
             <StackPanel>
-                <TextBlock Style="{StaticResource LessonText}"
-                           Margin="10">
-                    Тестовый текст для проверки текста
+                <TextBlock Style="{StaticResource TitleText}" Margin="10">
+                    Заголовок урока
+                </TextBlock>
+                <TextBlock Style="{StaticResource LessonText}" Margin="10"
+                           TextWrapping="Wrap">
+                    Entity Framework Core (EF Core) представляет собой
+                    объектно-ориентированную, легковесную и расширяемую 
+                    технологию от компании Microsoft для доступа к данным. 
+                    EF Core является ORM-инструментом (object-relational 
+                    mapping - отображения данных на реальные объекты).
                 </TextBlock>
                 <TextBlock Style="{StaticResource CodeText}"
                            Margin="10">
@@ -23,18 +30,18 @@
                 </TextBlock>
                 <StackPanel Orientation="Horizontal">
                     <Button Style="{StaticResource PageButton}"
-                        Margin="10"/>
-                    <Button Style="{StaticResource ButtonNext}"
-                        Margin="10"/>
+                            Margin="10"/>
                     <Button Style="{StaticResource ButtonBack}"
-                        Margin="10"/>
+                            Margin="10"/>
+                    <Button Style="{StaticResource ButtonNext}"
+                            Margin="10"/>
                 </StackPanel>
             </StackPanel>
-        </Grid>
-
+        </ScrollViewer>
+        
         <Border.Style>
             <Style TargetType="Border" BasedOn="{StaticResource LessonPage}">
-                <Setter Property="IsEnabled" Value="False"/>
+                <!--<Setter Property="IsEnabled" Value="True"/>-->
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
                                  Value="0">

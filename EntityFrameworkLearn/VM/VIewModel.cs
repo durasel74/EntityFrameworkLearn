@@ -9,6 +9,7 @@ namespace EntityFrameworkLearn.VM;
 
 public class ViewModel : INotifyPropertyChanged
 {
+    private bool menuVisible;
     private Page selectedPage;
 
     public ViewModel()
@@ -23,16 +24,28 @@ public class ViewModel : INotifyPropertyChanged
         //     Console.WriteLine(output);
         // }
 
+        menuVisible = false;
         Pages = new ObservableCollection<Page> 
         { 
             new Page("GrayPage", 0),
             new Page("MainPage", 1),
+            new Page("Что такое Entity Framework Core", 2),
         };
         SelectedPage = Pages[0];
     }
-
+    
     public ObservableCollection<String> PagesList { get; set; }
     public ObservableCollection<Page> Pages { get; set; }
+
+    public bool MenuVisible
+    {
+        get { return menuVisible; }
+        set
+		{
+            menuVisible = value;
+            OnPropertyChanged("MenuVisible");
+		}
+    }
 
     public Page SelectedPage
     {

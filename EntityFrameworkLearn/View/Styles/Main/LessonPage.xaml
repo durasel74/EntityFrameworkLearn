@@ -4,6 +4,8 @@
     <Style x:Key="LessonPage" TargetType="Border">
         <Setter Property="IsEnabled" Value="False"/>
         <Setter Property="Opacity" Value="1.0"/>
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="300"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="Background" Value="#FFF"/>
 

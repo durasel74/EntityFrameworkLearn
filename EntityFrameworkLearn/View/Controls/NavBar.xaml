@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="EntityFrameworkLearn.View.Controls.NavBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntityFrameworkLearn.View.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+
+    <Border Background="#A4A">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region Заголовок -->
+            <Border Grid.Row="0" Background="#939">
+                <TextBlock FontSize="30" VerticalAlignment="Center"
+                           Margin="50,0,0,0" FontWeight="Medium"
+                           Foreground="#3B1" Text="EF Learn"/>
+            </Border>
+            <!--#endregion-->
+
+            <!--#region Список -->
+            <Border Grid.Row="1">
+                <ListBox ItemsSource="{Binding Pages}"
+                     SelectedItem="{Binding SelectedPage, Mode=TwoWay}"
+                     Background="#A4A">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <TextBlock HorizontalAlignment="Center" 
+                                       FontSize="16" 
+                                       Text="{Binding Path=PageTitle}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+            <!--#endregion-->
+        </Grid>
+    </Border>
+</UserControl>

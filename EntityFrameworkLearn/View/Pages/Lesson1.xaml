@@ -4,20 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EntityFrameworkLearn.View.Pages"
+             xmlns:controls="clr-namespace:EntityFrameworkLearn.View.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Border>
-        <ScrollViewer Style="{StaticResource PageScroll}">
-            <StackPanel Margin="10">
-                <TextBlock Style="{StaticResource TitleText}"
-                           FontSize="30" Text="Заголовок урока"/>
-            </StackPanel>
-        </ScrollViewer>
 
-        <Border.Style>
-            <Style TargetType="Border" BasedOn="{StaticResource LessonPage}">
-                <Setter Property="IsEnabled" Value="True"/>
+    <ScrollViewer>
+        <Border Style="{StaticResource LessonPage}">
+            <StackPanel>
+                <StackPanel DataContext="{Binding SelectedPage}">
+                    <TextBlock Style="{StaticResource TitleText}"
+                           Text="{Binding PageTitle}"/>
+
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text1}"/>
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text2}"/>
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text3}"/>
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text4}"/>
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text5}"/>
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text6}"/>
+                </StackPanel>
+
+                <controls:NavButtons/>
+            </StackPanel>
+        </Border>
+
+        <!--#region Определение активности -->
+        <ScrollViewer.Style>
+            <Style TargetType="ScrollViewer" 
+                   BasedOn="{StaticResource PageScroll}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
                                  Value="2">
@@ -25,6 +44,7 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-        </Border.Style>
-    </Border>
+        </ScrollViewer.Style>
+        <!--#endregion-->
+    </ScrollViewer>
 </UserControl>

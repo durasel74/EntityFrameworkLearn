@@ -4,44 +4,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EntityFrameworkLearn.View.Pages"
+             xmlns:controls="clr-namespace:EntityFrameworkLearn.View.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border>
-        <ScrollViewer Style="{StaticResource PageScroll}">
+    <ScrollViewer>
+        <Border Style="{StaticResource LessonPage}">
             <StackPanel>
-                <TextBlock Style="{StaticResource TitleText}" Margin="10">
-                    Заголовок урока
-                </TextBlock>
-                <TextBlock Style="{StaticResource LessonText}" Margin="10"
-                           TextWrapping="Wrap">
-                    Entity Framework Core (EF Core) представляет собой
-                    объектно-ориентированную, легковесную и расширяемую 
-                    технологию от компании Microsoft для доступа к данным. 
-                    EF Core является ORM-инструментом (object-relational 
-                    mapping - отображения данных на реальные объекты).
-                </TextBlock>
-                <TextBlock Style="{StaticResource CodeText}"
-                           Margin="10">
-                    public void main()<LineBreak/>
-                    {<LineBreak/>
-                        Console.WriteLine("HelloWorld");<LineBreak/>
-                    }
-                </TextBlock>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource PageButton}"
-                            Margin="10"/>
-                    <Button Style="{StaticResource ButtonBack}"
-                            Margin="10"/>
-                    <Button Style="{StaticResource ButtonNext}"
-                            Margin="10"/>
+                <StackPanel DataContext="{Binding SelectedPage}">
+                    <TextBlock Style="{StaticResource TitleText}"
+                           Text="{Binding PageTitle}"/>
+
+                    <TextBlock Style="{StaticResource LessonText}"
+                           Text="{Binding Text1}"/>
+                    <TextBox Style="{StaticResource CodeText}"
+                         Margin="10" IsReadOnly="True"
+                         Text="{Binding CodeText1}"/>
                 </StackPanel>
+
+                <controls:NavButtons/>
             </StackPanel>
-        </ScrollViewer>
-        
-        <Border.Style>
-            <Style TargetType="Border" BasedOn="{StaticResource LessonPage}">
-                <!--<Setter Property="IsEnabled" Value="True"/>-->
+        </Border>
+
+        <!--#region Определение активности -->
+        <ScrollViewer.Style>
+            <Style TargetType="ScrollViewer" 
+                   BasedOn="{StaticResource PageScroll}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
                                  Value="0">
@@ -49,6 +37,7 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-        </Border.Style>
-    </Border>
+        </ScrollViewer.Style>
+        <!--#endregion-->
+    </ScrollViewer>
 </UserControl>

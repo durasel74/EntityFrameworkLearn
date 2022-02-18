@@ -1,11 +1,34 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <Style x:Key="ButtonBack" TargetType="Button" BasedOn="{StaticResource PageButton}">
+    <Style x:Key="ButtonBack" TargetType="Button" 
+           BasedOn="{StaticResource PageButton}">
+        <Setter Property="Content" Value="Назад"/>
+        <Setter Property="Background" Value="IndianRed"/>
+        <Setter Property="Command" Value="{Binding GoBackPageCommand}"/>
 
-        <Setter Property="Padding" Value="10"/>
-        
-        <Setter Property="Background" Value="Red"/>
+        <!--#region Анимации -->
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Background.Color">
+                            <ColorAnimation To="#B34" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
 
+            <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard TargetProperty="Background.Color">
+                            <ColorAnimation To="IndianRed" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+        <!--#endregion-->
     </Style>
 </ResourceDictionary>

@@ -2,12 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="TitleText" TargetType="TextBlock">
-
-        <Setter Property="Margin" Value="50,5,5,5"/>
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5,15,5,50"/>
+        <Setter Property="FontSize" Value="30"/>
         <Setter Property="FontFamily" Value="Trebuchet MS"/>
         <Setter Property="FontWeight" Value="Heavy"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Foreground" Value="#070707"/>
-
     </Style>
 </ResourceDictionary>

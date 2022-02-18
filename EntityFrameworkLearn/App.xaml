@@ -9,8 +9,10 @@
                 <ResourceDictionary Source="View/Styles/Main/LessonPage.xaml"/>
                 <ResourceDictionary Source="View/Styles/Main/PageScroll.xaml"/>
                 <ResourceDictionary Source="View/Styles/Buttons/PageButton.xaml"/>
+                <ResourceDictionary Source="View/Styles/Buttons/MainButton.xaml"/>
                 <ResourceDictionary Source="View/Styles/Buttons/ButtonNext.xaml"/>
                 <ResourceDictionary Source="View/Styles/Buttons/ButtonBack.xaml"/>
+                <ResourceDictionary Source="View/Styles/Buttons/MenuButton.xaml"/>
                 <ResourceDictionary Source="View/Styles/Texts/TitleText.xaml"/>
                 <ResourceDictionary Source="View/Styles/Texts/LessonText.xaml"/>
                 <ResourceDictionary Source="View/Styles/Texts/CodeText.xaml"/>

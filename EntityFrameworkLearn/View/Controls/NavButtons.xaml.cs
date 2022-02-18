@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace EntityFrameworkLearn.View.Controls
 {
-	public partial class MenuButton : UserControl
+	public partial class NavButtons : UserControl
 	{
-		public MenuButton()
+		public NavButtons()
 		{
 			InitializeComponent();
 		}

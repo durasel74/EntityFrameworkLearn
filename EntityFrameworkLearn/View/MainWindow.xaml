@@ -7,46 +7,48 @@
         xmlns:pages="clr-namespace:EntityFrameworkLearn.View.Pages"
         xmlns:controls="clr-namespace:EntityFrameworkLearn.View.Controls"
         mc:Ignorable="d"
-        Title="EFLearn" MinWidth="600" MinHeight="400" 
+        Title="EF Learn" MinWidth="700" MinHeight="500" 
         Width="900" Height="600">
 
-    <Grid>
-        <Grid Background="#CCC">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+    <Grid Background="#CCC">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" IsEnabled="{Binding MenuVisible}">
-                <controls:NavBar x:Name="NavBar"/>
-
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Style.Triggers>
-                            <Trigger Property="IsEnabled" Value="True">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Grid.Style>
-            </Grid>
-
-            <!--#region Страницы -->
-            <Grid Grid.Column="1">
-                <pages:GrayPage Margin="4,4,4,10"/>
-
-                <pages:MainPage Margin="4,4,4,10"/>
-
-                <pages:Lesson1 Margin="4,4,4,10"/>
-            </Grid>
-            <!--#endregion-->
-
+        <!--#region Навигация -->
+        <Grid Grid.Column="0">
+            <controls:MenuBar/>
         </Grid>
 
-        <controls:MenuButton HorizontalAlignment="Left"
-                      VerticalAlignment="Top"/>
+        <Grid Grid.Column="1" IsEnabled="{Binding MenuVisible}">
+            <controls:NavBar x:Name="NavBar"/>
+
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Страницы -->
+        <Grid Grid.Column="2">
+            <pages:GrayPage/>
+
+            <pages:MainPage/>
+
+            <pages:Lesson1/>
+        </Grid>
+        <!--#endregion-->
+
     </Grid>
 </Window>

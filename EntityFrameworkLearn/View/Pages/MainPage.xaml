@@ -4,21 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EntityFrameworkLearn.View.Pages"
+             xmlns:controls="clr-namespace:EntityFrameworkLearn.View.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    <Border>
-        <Grid>
-            <WrapPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Style="{StaticResource LessonText}"
-                           Margin="10">
-                    Главная страница
-                </TextBlock>
-            </WrapPanel>
-        </Grid>
 
-        <Border.Style>
-            <Style TargetType="Border" BasedOn="{StaticResource LessonPage}">
+    <ScrollViewer>
+        <Border Style="{StaticResource LessonPage}">
+            <StackPanel>
+                <StackPanel DataContext="{Binding SelectedPage}">
+                    <TextBlock Style="{StaticResource TitleText}"
+                           Text="{Binding PageTitle}"/>
+                </StackPanel>
+
+                <controls:NavButtons/>
+            </StackPanel>
+        </Border>
+
+        <!--#region Определение активности -->
+        <ScrollViewer.Style>
+            <Style TargetType="ScrollViewer" 
+                   BasedOn="{StaticResource PageScroll}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
                                  Value="1">
@@ -26,6 +31,7 @@
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
-        </Border.Style>
-    </Border>
+        </ScrollViewer.Style>
+        <!--#endregion-->
+    </ScrollViewer>
 </UserControl>

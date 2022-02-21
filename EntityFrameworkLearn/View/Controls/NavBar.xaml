@@ -24,15 +24,17 @@
 
             <!--#region Список -->
             <Border Grid.Row="1">
-                <ListBox ItemsSource="{Binding Pages}"
-                     SelectedItem="{Binding SelectedPage, Mode=TwoWay}"
-                     Background="#A4A">
+                <ListBox Style="{StaticResource NavList}"
+                         ItemContainerStyle="{StaticResource NavListItem}"
+                         ItemsSource="{Binding Pages}"
+                         SelectedItem="{Binding SelectedPage, 
+                         Mode=TwoWay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="5">
-                                <TextBlock HorizontalAlignment="Center" 
-                                       FontSize="16" 
-                                       Text="{Binding Path=PageTitle}" />
+                                <TextBlock HorizontalAlignment="Left" 
+                                           FontSize="16" 
+                                           Text="{Binding Path=PageTitle}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

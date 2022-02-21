@@ -49,6 +49,8 @@
             <pages:Lesson3/>
             <pages:Lesson4/>
             <pages:Lesson5/>
+            <pages:Lesson6/>
+            <pages:Conclusion/>
         </Grid>
         <!--#endregion-->
 

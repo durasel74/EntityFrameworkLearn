@@ -44,16 +44,14 @@ public class ViewModel : INotifyPropertyChanged
             usersDeleteRange = usersDelete.GetRange(0, usersDelete.Count);
             usersDeleteRange.RemoveRange(usersDelete.IndexOf(newUser1), 2);
 
-            usersUpdate = usersDeleteRange.GetRange(0, usersDeleteRange.Count);
-
-
-            
-		}
+            usersUpdate = usersAddRange.GetRange(0, usersAddRange.Count);
+            newUser.login = "Измененный Пользователь";
+        }
 
         menuVisible = false;
         Pages = new ObservableCollection<Page>
         {
-            new GrayPageClass("ТЕСТОВАЯ СТРАНИЦА", 0),
+            new GrayPageClass("ТЕСТОВАЯ СТРАНИЦА", 0) { Table1 = users },
             new Page("Главная", 1),
             new Lesson1("Введение в Entity Framework Core", 2),
             new Lesson2("Первое приложение Entity Framework", 3),
@@ -62,6 +60,8 @@ public class ViewModel : INotifyPropertyChanged
                 Table2 = usersAddRange },
             new Lesson5("Удаление", 6) { Table1 = usersDelete,
                 Table2 = usersDeleteRange },
+            new Lesson6("Редактирование", 7) { Table1 = usersUpdate },
+            new Conclusion("Заключение", 8),
         };
         SelectedPage = Pages[0];
         mainPage = Pages[1];
@@ -69,8 +69,13 @@ public class ViewModel : INotifyPropertyChanged
     
     public ObservableCollection<String> PagesList { get; set; }
     public ObservableCollection<Page> Pages { get; set; }
+    public ObservableCollection<Page> Contents
+	{
+        get { return new ObservableCollection<Page>(Pages.ToList().GetRange(2, Pages.Count - 2)); }
+        set { }
+	}
 
-    public bool MenuVisible
+	public bool MenuVisible
     {
         get { return menuVisible; }
         set

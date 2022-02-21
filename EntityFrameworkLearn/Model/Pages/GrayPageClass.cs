@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EntityFrameworkLearn.Model
 {
@@ -19,9 +20,12 @@ namespace EntityFrameworkLearn.Model
 			"{\n" +
 			"    Console.WriteLine(\"HelloWorld\");\n" +
 			"}\n";
+
+			// Table1
 		}
 
 		public string Text1 { get; set; }
 		public string CodeText1 { get; set; }
+		public List<User> Table1 { get; set; }
 	}
 }

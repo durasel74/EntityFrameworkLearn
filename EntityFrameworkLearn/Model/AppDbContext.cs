@@ -28,6 +28,6 @@ public class AppDbContext : DbContext
 	{
 		optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;" +
 			@"AttachDbFilename=|DataDirectory|\Recources\TourDB.mdf;Database=TourDB;" +
-			"Trusted_Connection=True;");
+			@"User Id=User;Password=0000;");
 	}
 }

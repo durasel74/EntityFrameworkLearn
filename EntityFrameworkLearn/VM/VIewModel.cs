@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -13,24 +14,54 @@ public class ViewModel : INotifyPropertyChanged
     private Page selectedPage;
     private Page mainPage;
 
+    private List<User> users;
+    private List<User> usersAdd;
+    private List<User> usersAddRange;
+    private List<User> usersDelete;
+    private List<User> usersDeleteRange;
+    private List<User> usersUpdate;
+
     public ViewModel()
     {
-		var db = new AppDbContext();
+        using (AppDbContext db = new AppDbContext())
+        {
+			users = db.Users.ToList();
 
-		var tables = db.Users_Tours.ToList();
-		foreach (var table in tables)
-		{
-			string output = $"{table.userLogin} {table.tourName} " +
-	            $"{table.tourDate}";
-			Console.WriteLine(output);
+            usersAdd = users.GetRange(0, users.Count);
+            var newUser = new User { login = "Новый Пользователь", password = "0000",
+                birthDate=DateTime.Now, email="New@mail.ru"};
+            usersAdd.Add(newUser);
+
+            usersAddRange = usersAdd.GetRange(0, usersAdd.Count);
+            var newUser1 = new User {login = "Новый1", password = "0000",
+                birthDate = DateTime.Now, email = "New1@mail.ru"};
+            var newUser2 = new User {login = "Новый2", password = "0000",
+                birthDate = DateTime.Now, email = "New2@mail.ru"};
+            usersAddRange.AddRange(new List<User> { newUser1, newUser2 });
+
+            usersDelete = usersAddRange.GetRange(0, usersAddRange.Count);
+            usersDelete.Remove(newUser);
+            usersDeleteRange = usersDelete.GetRange(0, usersDelete.Count);
+            usersDeleteRange.RemoveRange(usersDelete.IndexOf(newUser1), 2);
+
+            usersUpdate = usersDeleteRange.GetRange(0, usersDeleteRange.Count);
+
+
+            
 		}
 
-		menuVisible = false;
+        menuVisible = false;
         Pages = new ObservableCollection<Page>
         {
             new GrayPageClass("ТЕСТОВАЯ СТРАНИЦА", 0),
             new Page("Главная", 1),
             new Lesson1("Введение в Entity Framework Core", 2),
+            new Lesson2("Первое приложение Entity Framework", 3),
+            new Lesson3("Пример работы", 4) { Table1 = users },
+            new Lesson4("Добавление", 5) { Table1 = usersAdd, 
+                Table2 = usersAddRange },
+            new Lesson5("Удаление", 6) { Table1 = usersDelete,
+                Table2 = usersDeleteRange },
         };
         SelectedPage = Pages[0];
         mainPage = Pages[1];
@@ -68,7 +99,8 @@ public class ViewModel : INotifyPropertyChanged
               (goMainPageCommand = new ButtonCommand(obj =>
               {
                   SelectedPage = mainPage;
-              }));
+              },
+              (obj) => SelectedPage.PageId != 1));
         }
     }
 

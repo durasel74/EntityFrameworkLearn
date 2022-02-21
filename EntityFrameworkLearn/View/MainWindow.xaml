@@ -43,10 +43,12 @@
         <!--#region Страницы -->
         <Grid Grid.Column="2">
             <pages:GrayPage/>
-
             <pages:MainPage/>
-
             <pages:Lesson1/>
+            <pages:Lesson2/>
+            <pages:Lesson3/>
+            <pages:Lesson4/>
+            <pages:Lesson5/>
         </Grid>
         <!--#endregion-->
 

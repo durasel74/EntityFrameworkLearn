@@ -7,18 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="300">
 
-    <Border Background="#A4A">
+    <Border Background="#63A">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="44"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!--#region Заголовок -->
-            <Border Grid.Row="0" Background="#939">
+            <Border Grid.Row="0" Background="#74B">
                 <TextBlock FontSize="30" VerticalAlignment="Center"
                            Margin="50,0,0,0" FontWeight="Medium"
-                           Foreground="#3B1" Text="EF Learn"/>
+                           Foreground="#F4F" Text="EF Learn"/>
             </Border>
             <!--#endregion-->
 
@@ -34,6 +34,7 @@
                             <StackPanel Margin="5">
                                 <TextBlock HorizontalAlignment="Left" 
                                            FontSize="16" 
+                                           FontFamily="Trebuchet MS"
                                            Text="{Binding Path=PageTitle}" />
                             </StackPanel>
                         </DataTemplate>

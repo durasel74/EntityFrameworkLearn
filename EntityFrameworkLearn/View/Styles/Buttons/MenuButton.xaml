@@ -2,10 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="MenuButton" TargetType="ToggleButton">
-
         <Setter Property="FontWeight" Value="ExtraBold"/>
         <Setter Property="Background" Value="#482B"/>
         <Setter Property="Foreground" Value="#070707"/>
-
     </Style>
 </ResourceDictionary>

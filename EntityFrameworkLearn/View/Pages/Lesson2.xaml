@@ -51,7 +51,7 @@
                    BasedOn="{StaticResource PageScroll}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
-                                 Value="3">
+                                 Value="2">
                         <Setter Property="IsEnabled" Value="True"/>
                     </DataTrigger>
                 </Style.Triggers>

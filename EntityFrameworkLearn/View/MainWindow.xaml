@@ -42,7 +42,6 @@
 
         <!--#region Страницы -->
         <Grid Grid.Column="2">
-            <pages:GrayPage/>
             <pages:MainPage/>
             <pages:Lesson1/>
             <pages:Lesson2/>

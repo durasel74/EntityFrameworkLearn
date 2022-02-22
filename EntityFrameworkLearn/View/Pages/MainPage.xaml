@@ -13,24 +13,24 @@
             <StackPanel>
                 <StackPanel DataContext="{Binding SelectedPage}">
                     <TextBlock Style="{StaticResource TitleText}"
-                           Text="Entity Framework Core"/>
+                               Text="Entity Framework Core"/>
                 </StackPanel>
 
-                <ListBox ItemsSource="{Binding Contents}"
-                     SelectedItem="{Binding SelectedPage, Mode=TwoWay}"
-                     Background="#A4A">
+                <ListBox Style="{StaticResource ContentsList}"
+                         ItemContainerStyle="{StaticResource ContentsListItem}"
+                         ItemsSource="{Binding Pages}"
+                         SelectedItem="{Binding SelectedPage, Mode=TwoWay}"
+                         FontFamily="Trebuchet MS">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="5">
                                 <TextBlock HorizontalAlignment="Center" 
-                                       FontSize="16" 
-                                       Text="{Binding Path=PageTitle}" />
+                                           FontSize="20" Foreground="White"
+                                           Text="{Binding Path=PageTitle}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
-                <controls:NavButtons/>
             </StackPanel>
         </Border>
 
@@ -40,7 +40,7 @@
                    BasedOn="{StaticResource PageScroll}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=SelectedPage.PageId}"
-                                 Value="1">
+                                 Value="0">
                         <Setter Property="IsEnabled" Value="True"/>
                     </DataTrigger>
                 </Style.Triggers>

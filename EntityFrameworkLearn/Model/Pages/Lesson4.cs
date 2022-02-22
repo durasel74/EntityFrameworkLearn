@@ -36,7 +36,7 @@ namespace EntityFrameworkLearn.Model
 			CodeText2 =
 			"User newUser1 = new User { Login = \"Новый1\", email = \"New1 @mail.ru\"};\n" +
 			"User newUser2 = new User { Login = \"Новый2\", email = \"New2 @mail.ru\"};\n" +
-			"db.Users.AddRange(tom, alice);";
+			"db.Users.AddRange(tom, alice);\n";
 
 			// Table2
 		}

@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="View/Styles/Texts/CodeText.xaml"/>
                 <ResourceDictionary Source="View/Styles/Lists/NavList.xaml"/>
                 <ResourceDictionary Source="View/Styles/Lists/ContentsList.xaml"/>
+                <ResourceDictionary Source="View/Styles/Tables/DbTable.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

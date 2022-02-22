@@ -51,29 +51,23 @@ public class ViewModel : INotifyPropertyChanged
         menuVisible = false;
         Pages = new ObservableCollection<Page>
         {
-            new GrayPageClass("ТЕСТОВАЯ СТРАНИЦА", 0) { Table1 = users },
-            new Page("Главная", 1),
-            new Lesson1("Введение в Entity Framework Core", 2),
-            new Lesson2("Первое приложение Entity Framework", 3),
-            new Lesson3("Пример работы", 4) { Table1 = users },
-            new Lesson4("Добавление", 5) { Table1 = usersAdd, 
+            new Page("Главная", 0),
+            new Lesson1("Введение в Entity Framework Core", 1),
+            new Lesson2("Первое приложение Entity Framework", 2),
+            new Lesson3("Пример работы", 3) { Table1 = users },
+            new Lesson4("Добавление", 4) { Table1 = usersAdd, 
                 Table2 = usersAddRange },
-            new Lesson5("Удаление", 6) { Table1 = usersDelete,
+            new Lesson5("Удаление", 5) { Table1 = usersDelete,
                 Table2 = usersDeleteRange },
-            new Lesson6("Редактирование", 7) { Table1 = usersUpdate },
-            new Conclusion("Заключение", 8),
+            new Lesson6("Редактирование", 6) { Table1 = usersUpdate },
+            new Conclusion("Заключение", 7),
         };
         SelectedPage = Pages[0];
-        mainPage = Pages[1];
+        mainPage = Pages[0];
     }
     
     public ObservableCollection<String> PagesList { get; set; }
     public ObservableCollection<Page> Pages { get; set; }
-    public ObservableCollection<Page> Contents
-	{
-        get { return new ObservableCollection<Page>(Pages.ToList().GetRange(2, Pages.Count - 2)); }
-        set { }
-	}
 
 	public bool MenuVisible
     {
@@ -104,8 +98,7 @@ public class ViewModel : INotifyPropertyChanged
               (goMainPageCommand = new ButtonCommand(obj =>
               {
                   SelectedPage = mainPage;
-              },
-              (obj) => SelectedPage.PageId != 1));
+              }));
         }
     }
 
@@ -133,7 +126,7 @@ public class ViewModel : INotifyPropertyChanged
               {
                   SelectedPage = Pages[SelectedPage.PageId - 1];
               },
-              (obj) => SelectedPage.PageId > 0));
+              (obj) => SelectedPage.PageId > 1));
         }
     }
 
